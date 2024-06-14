@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Team 17 Semarang</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="asset/logo-team-17.png">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <img src="asset/logo-team-17.png" alt="Team 17 Logo">
+      </div>
+      <div class="navbar-links">
+        <div class="dropdown">
+          <button onclick="toggleDropdown()" class="dropbtn"> &#9660;</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="index.html">Dashboard</a>
+            <a href="team.html">About Team</a>
+            <a href="reviews.html">Reviews</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="header-text">
+
+      <h2>Maven Roasters Coffee Shop</h2>
+    </div>
+
+    <div class="filter-container">
+      <div class="filter-item">
+        <label for="product-category-select">Product Category</label>
+        <select id="product-category-select">
+          <option value="all">All</option>
+          <option value="Coffee beans">Coffee beans</option>
+          <option value="Packaged Chocolate">Packaged Chocolate</option>
+          <option value="Loose Tea">Loose Tea</option>
+          <option value="Coffee">Coffee</option>
+          <option value="Tea">Tea</option>
+          <option value="Drinking Chocolate">Drinking Chocolate</option>
+          <option value="Flavours">Flavours</option>
+          <option value="Bakery">Bakery</option>
+          <option value="Branded">Branded</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <label for="store-location-select">Store Location</label>
+        <select id="store-location-select">
+          <option value="all">All</option>
+          <option value="Astoria">Astoria</option>
+          <option value="Lower Manhattan">Lower Manhattan</option>
+          <option value="Hell's Kitchen">Hell's Kitchen</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <label for="transaction-month-select">Select month range</label>
+        <select id="transaction-month-select">
+          <option value="all">All</option>
+          <option value="month-1">January</option>
+          <option value="month-2">February</option>
+          <option value="month-3">March</option>
+          <option value="month-4">April</option>
+          <option value="month-5">May</option>
+          <option value="month-6">June</option>
+        </select>
+      </div>
+    </div>
+
+    <main class="dashboard-grid">
+      <div class="CTable">
+        <div class="chart-container">
+          <h1 class="chart-title">Revenue by Month</h1>
+          <div class="loading" id="loading-month-chart">Loading...</div>
+          <canvas id="revenue-by-month-chart" style="display: none"></canvas>
+        </div>
+        <div class="chart-container">
+          <h1 class="chart-title">Revenue by Product Category</h1>
+          <div class="loading" id="loading-category-chart">Loading...</div>
+          <canvas id="revenue-by-category-chart" style="display: none"></canvas>
+        </div>
+        <div class="chart-container">
+          <h1 class="chart-title">Revenue by Product Detail</h1>
+          <div class="loading" id="loading-product-detail-chart">Loading...</div>
+          <canvas id="revenue-by-product-detail-chart" style="display: none"></canvas>
+        </div>
+        <div class="chart-container">
+          <h1 class="chart-title">Revenue by Store Location</h1>
+          <div class="loading" id="loading-location-chart">Loading...</div>
+          <canvas id="revenue-by-location-chart" width="200" height="200" style="display: none;"></canvas>
+        </div>
+        <div class="chart-container transaction-table-container">
+          <h1 class="chart-title">Transaction Table</h1>
+          <div class="loading" id="loading-transaction-table">Loading...</div>
+          <table id="transaction-table-dt" class="display">
+            <thead>
+              <tr>
+                <th>Product Category</th>
+                <th>Product Detail</th>
+                <th>Price</th>
+                <th>Total Sales</th>
+                <th>Transaction Date</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      <a href="https://revou.co/" target="_blank">Kampus Merdeka - RevoU</a>
+    </div>
+    <div class="footer-right">
+      <p>&copy; 2024 Team 17 Semarang. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts at the end of body -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>
